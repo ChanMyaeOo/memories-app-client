@@ -5,7 +5,7 @@ import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import DeleteIcon from '@material-ui/icons/Delete';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import moment from 'moment';
-import { deletePost } from '../../../actions/posts';
+import { deletePost, likePost} from '../../../actions/posts';
 import { useDispatch } from 'react-redux';
 
 const Post = ({ post, setCurrentId }) => {
@@ -50,7 +50,7 @@ const Post = ({ post, setCurrentId }) => {
             </CardContent>
 
             <CardActions className={classes.cardActions}>
-                    <Button size="small" color="primary" onClick={() => {}}>
+                    <Button size="small" color="primary" onClick={() => dispatch(likePost(post._id))}>
                         <ThumbUpAltIcon fontSize="small" />
                         Like
                         {post.likeCount}
